@@ -29,9 +29,11 @@ public class Transaction {
     public final String signature;
     public final Map<String, Object> data;
     final String endpoint;
+    final byte[] bytes;
 
     private Transaction(PrivateKeyAccount account, ByteBuffer buffer, String endpoint, Object... items) {
-        byte[] bytes = toBytes(buffer);
+
+        this.bytes = toBytes(buffer);
         this.id = hash(bytes);
         this.signature = sign(account, bytes);
         this.endpoint = endpoint;

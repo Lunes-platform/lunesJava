@@ -153,36 +153,8 @@ public class Node {
         return send(tx);
     }
 
-    public String lease(PrivateKeyAccount from, String recipient, long amount, long fee) throws IOException {
-        Transaction tx = Transaction.makeLeaseTx(from, recipient, amount, fee);
-        return send(tx);
-    }
 
-    public String cancelLease(PrivateKeyAccount account, byte chainId, String txId, long fee) throws IOException {
-        Transaction tx = Transaction.makeLeaseCancelTx(account, chainId, txId, fee);
-        return send(tx);
-    }
 
-    public String issueAsset(PrivateKeyAccount account, byte chainId, String name, String description, long quantity,
-                             byte decimals, boolean reissuable, String script, long fee) throws IOException {
-        Transaction tx = Transaction.makeIssueTx(account, chainId, name, description, quantity, decimals, reissuable, script, fee);
-        return send(tx);
-    }
-
-    public String reissueAsset(PrivateKeyAccount account, byte chainId, String assetId, long quantity, boolean reissuable, long fee) throws IOException {
-        Transaction tx = Transaction.makeReissueTx(account, chainId, assetId, quantity, reissuable, fee);
-        return send(tx);
-    }
-
-    public String burnAsset(PrivateKeyAccount account, byte chainId, String assetId, long amount, long fee) throws IOException {
-        Transaction tx = Transaction.makeBurnTx(account, chainId, assetId, amount, fee);
-        return send(tx);
-    }
-
-    public String alias(PrivateKeyAccount account, byte chainId, String alias, long fee) throws IOException {
-        Transaction tx = Transaction.makeAliasTx(account, alias, chainId, fee);
-        return send(tx);
-    }
 
 
 
