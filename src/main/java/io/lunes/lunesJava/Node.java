@@ -142,14 +142,14 @@ public class Node {
         return parse(exec(request(path)), key);
     }
 
-    public String transfer(PrivateKeyAccount from, String recipient, long amount, long fee, String message) throws IOException {
-        Transaction tx = Transaction.makeTransferTx(from, recipient, amount, null, fee, null, message);
+    public String transfer(PrivateKeyAccount from, String recipient, long amount, long fee) throws IOException {
+        Transaction tx = Transaction.makeTransferTx(from, recipient, amount, null, fee, null);
         return send(tx);
     }
 
     public String transfer(PrivateKeyAccount from, String assetId, String recipient,
-                           long amount, long fee, String feeAssetId, String message) throws IOException {
-        Transaction tx = Transaction.makeTransferTx(from, recipient, amount, assetId, fee, feeAssetId, message);
+                           long amount, long fee, String feeAssetId) throws IOException {
+        Transaction tx = Transaction.makeTransferTx(from, recipient, amount, assetId, fee, feeAssetId);
         return send(tx);
     }
 
