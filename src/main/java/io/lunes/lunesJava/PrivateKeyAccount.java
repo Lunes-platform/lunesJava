@@ -216,10 +216,6 @@ public class PrivateKeyAccount extends PublicKeyAccount {
         return new PrivateKeyAccount(Base58.decode(privateKey), chainId);
     }
 
-    public static PrivateKeyAccount fromSeedHash(String seedHash, byte chainId) {
-        return new PrivateKeyAccount(privateKey(Base58.decode(seedHash).toString(), 0), chainId);
-    }
-
     /**
      * Generates a 15-word random seed. This method implements the BIP-39 algorithm with 160 bits of entropy.
      *
